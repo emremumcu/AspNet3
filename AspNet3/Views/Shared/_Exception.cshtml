@@ -1,0 +1,15 @@
+﻿@model AspNetDemo_GlobalExceptions.Models.GlobalExceptionViewModel
+
+@ViewBag.EventTime
+
+<p>Status Code: @Model.StatusCode</p>
+
+<p>Source: @Model.Source</p>
+
+<p>Is Status Code Exception : @Model.IsStatusCodeException</p>
+
+<p>Ex Message: @Model.ApplicationException?.Message</p>
+
+<p>Innser Ex Message: @Model.ApplicationException?.InnerException?.Message</p>
+
+<p>Stack Trace: @Model.ApplicationException?.StackTrace</p>

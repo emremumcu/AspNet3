@@ -1,0 +1,36 @@
+﻿<div class="dropdown">
+    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Select Theme
+    </button>
+    <div class="dropdown-menu">
+        <span class="dropdown-item-text small">
+            Selected theme is
+            <script>document.write((localStorage.getItem('theme') == null) ? ("default") : (localStorage.getItem('theme')))</script>
+        </span>
+        <h6 class="dropdown-header">Please select a theme</h6>
+        <a class="dropdown-item" href="" onclick="ChangeTheme(this.text)">Default</a>
+        <a class="dropdown-item" href="" onclick="ChangeTheme(this.text)">Cerulean</a>
+        <a class="dropdown-item" href="" onclick="ChangeTheme(this.text)">Cosmo</a>
+        <a class="dropdown-item" href="" onclick="ChangeTheme(this.text)">Cyborg</a>
+        <a class="dropdown-item" href="" onclick="ChangeTheme(this.text)">Darkly</a>
+        <a class="dropdown-item" href="" onclick="ChangeTheme(this.text)">Flaty</a>
+        <a class="dropdown-item" href="" onclick="ChangeTheme(this.text)">Journal</a>
+        <a class="dropdown-item" href="" onclick="ChangeTheme(this.text)">Litera</a>
+        <a class="dropdown-item" href="" onclick="ChangeTheme(this.text)">Lumen</a>
+        <a class="dropdown-item" href="" onclick="ChangeTheme(this.text)">Lux</a>
+        <a class="dropdown-item" href="" onclick="ChangeTheme(this.text)">Materia</a>
+        <a class="dropdown-item" href="" onclick="ChangeTheme(this.text)">Minty</a>
+        <a class="dropdown-item" href="" onclick="ChangeTheme(this.text)">Pulse</a>
+        <a class="dropdown-item" href="" onclick="ChangeTheme(this.text)">Sandstone</a>
+        <a class="dropdown-item" href="" onclick="ChangeTheme(this.text)">Simplex</a>
+        <a class="dropdown-item" href="" onclick="ChangeTheme(this.text)">Sketchy</a>
+        <a class="dropdown-item" href="" onclick="ChangeTheme(this.text)">Slate</a>
+        <a class="dropdown-item" href="" onclick="ChangeTheme(this.text)">Solar</a>
+        <a class="dropdown-item" href="" onclick="ChangeTheme(this.text)">Spacelab</a>
+        <a class="dropdown-item" href="" onclick="ChangeTheme(this.text)">Superhero</a>
+        <a class="dropdown-item" href="" onclick="ChangeTheme(this.text)">United</a>
+        <a class="dropdown-item" href="" onclick="ChangeTheme(this.text)">Yeti</a>
+    </div>
+</div>
+
+@*Theme data is from <a href="https://bootswatch.com/">https://bootswatch.com/</a>*@

@@ -1,0 +1,95 @@
+﻿@model RegisterViewModel
+
+<div class="container-fluid">
+
+    <div class="row no-gutter">
+
+        <div class="d-none d-md-flex col-md-6 col-lg-8 login-bg-image"></div>
+
+        <div class="col-md-6 col-lg-4">
+
+            <div class="login d-flex align-items-center py-5">
+
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-md-9 col-lg-8 mx-auto">
+
+                            <h3 class="mb-4">Kullanıcı Kayıt</h3> 
+
+                            <form asp-controller="Account" asp-action="Register" method="post">
+
+                                <div class="form-group">
+                                    <label asp-for="Username"></label>
+                                    <input asp-for="Username" class="form-control" autocomplete="off" placeholder="Kullanıcı adını giriniz" />
+                                    <span asp-validation-for="Username"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="Password"></label>
+                                    <input asp-for="Password" class="form-control" placeholder="Şifrenizi giriniz" />
+                                    <span asp-validation-for="Password"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="ConfirmPassword"></label>
+                                    <input asp-for="ConfirmPassword" class="form-control" placeholder="Şifrenizi tekrar giriniz" />
+                                    <span asp-validation-for="ConfirmPassword"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="Captcha"></label>
+                                    <div class="input-group" style="cursor: pointer">
+                                        <div class="input-group-prepend">
+                                            <img id="img-captcha" src="~/get-captcha-image" />
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Güvenlik Kodunu Giriniz" asp-for="Captcha.CaptchaCode" maxlength="4" autocomplete="off" />
+                                    </div>
+                                    <small id="emailHelp" class="form-text text-muted">Kodu yenilemek için resme tıklayınız.</small>
+                                    <span asp-validation-for="Captcha.CaptchaCode"></span>
+                                    @Html.ValidationMessage("Captcha")
+                                </div>
+
+                                <div class="my-2">
+                                    <div asp-validation-summary="ModelOnly"></div>
+                                    @Html.ValidationSummary(excludePropertyErrors: true)
+                                    @Html.ValidationMessage("ERR")
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-block">Tamam</button>
+
+                                <div class="text-center my-4">
+                                    <a class="small" href="@Url.Content("~/Account/Login")">Kullanıcı Girişi</a> | <a class="small" href="#">Şifremi Unuttum</a>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+@section scriptSection {
+
+    <script>
+
+        $("#img-captcha").click(function ()
+        {
+            d = new Date();
+            $("#img-captcha").attr("src", "/get-captcha-image?" + d.getTime());
+        });
+
+    </script>
+
+}

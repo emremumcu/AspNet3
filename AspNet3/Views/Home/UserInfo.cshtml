@@ -1,0 +1,28 @@
+﻿@{
+    System.Security.Claims.ClaimsIdentity ci = ((System.Security.Claims.ClaimsIdentity)User.Identity);
+
+
+    string userClaimsJson = Newtonsoft.Json.JsonConvert.SerializeObject(ci,
+        Newtonsoft.Json.Formatting.Indented,
+        new Newtonsoft.Json.JsonSerializerSettings { ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore }
+    ).Trim();
+}
+
+
+
+<div class="container-lg navbar-padding">
+
+    <div class="row">
+
+        <div class="col">
+
+            <div class="jumbotron">
+                <h2>Geçerli Kullanıcı Bilgisi</h2>
+                <pre class="small">@userClaimsJson</pre>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

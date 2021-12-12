@@ -1,0 +1,26 @@
+﻿html, body {
+    min-height: 100vh;
+}
+
+
+/* Placeholder Styles */
+.form-control::-webkit-input-placeholder    { font-size: small; color: #b8c6db; }  /* WebKit, Blink, Edge */
+.form-control:-moz-placeholder              { font-size: small; color: #d1e3ff; }  /* Mozilla Firefox 4 to 18 */
+.form-control::-moz-placeholder             { font-size: small; color: #d1e3ff; }  /* Mozilla Firefox 19+ */
+.form-control:-ms-input-placeholder         { font-size: small; color: #d1e3ff; }  /* Internet Explorer 10-11 */
+.form-control::-ms-input-placeholder        { font-size: small; color: #d1e3ff; }  /* Microsoft Edge */
+
+/* Validation Message Styles */
+.field-validation-error, 
+.validation-summary-errors {
+    font-size: small;
+    color: #f58a42;
+    background-color: #FFFF00;
+}
+
+
+/* Login View */
+.login, .image      { min-height: 100vh; }
+.login-bg-image     { background-image: url('../img/login-bg.jpg'); background-size: cover; background-position: center; }
+
+.navbar-margin     { margin-bottom: 75px; }

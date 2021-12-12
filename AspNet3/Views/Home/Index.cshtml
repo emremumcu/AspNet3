@@ -1,0 +1,44 @@
+﻿@*To use HttpContextAccessor.HttpContext.Session*@
+@inject IHttpContextAccessor HttpContextAccessor
+
+@using AspNet3.AppLib.StartupExt
+@using Microsoft.AspNetCore.Http
+
+<div class="container-lg">
+
+    <div class="row">
+
+        <div class="col">
+
+            <div class="jumbotron">
+
+                <table class="table">
+                    <tr>
+                        <th>Session ID</th>
+                        <th>Timestamp (UTC)</th>
+                        <th>Timestamp (Local Time)</th>
+                    </tr>
+                    <tr>
+                        <td>@HttpContextAccessor.HttpContext.Session.Id</td>
+                        <td>@(HttpContextAccessor.HttpContext.Session.GetKey<DateTime>("LOGIN_DATETIME").ToString("dd.MM.yyyy HH:mm:ss fffffff UTC"))</td>
+                        <td>@(HttpContextAccessor.HttpContext.Session.GetKey<DateTime>("LOGIN_DATETIME").ToLocalTime().ToString("dd.MM.yyyy HH:mm:ss fffffff"))</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            @System.TimeZoneInfo.Local.StandardName (@System.TimeZoneInfo.Local.DaylightName GMT +@System.TimeZoneInfo.Local.BaseUtcOffset)                            
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<environment names="Development,Staging"></environment>
+<environment names="Production"></environment>
+<environment include="Development"></environment>
+<environment exclude="Development"></environment>

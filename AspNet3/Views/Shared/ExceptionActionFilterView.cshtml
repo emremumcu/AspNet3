@@ -1,0 +1,20 @@
+﻿@model System.Exception
+
+<h1>Exception in Application</h1>
+
+<p>Controller: @ViewData["Controller"]</p>
+<p>Action: @ViewData["Action"]</p>
+
+<h3>Exception Detail</h3>
+
+@if(Model != null)
+{
+    <h5>Error Message:</h5>
+    <p>@Model.Message</p>
+
+    if (ViewData["IsDevelopment"].ToString() == "True")
+    {
+        <h5>Stack Trace:</h5>
+        <p>@Model.StackTrace</p>
+    }
+}

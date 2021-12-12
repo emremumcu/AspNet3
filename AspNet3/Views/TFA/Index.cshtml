@@ -1,0 +1,83 @@
+﻿@model TFAViewModel
+
+<div class="container-lg navbar-padding">
+
+    <div class="row">
+
+        <div class="col">
+
+            <div class="jumbotron">
+
+                <h1 class="display-4">İki Aşamalı Kimlik Doğrulama</h1>
+
+                <hr />
+
+                <form asp-controller="TFA" asp-action="Index" method="post">
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Kullanıcı ID</label>
+                        <div class="col-sm-10">
+                            <input asp-for="UserId" class="form-control" autocomplete="off" readonly />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Kullanıcı Adınız</label>
+                        <div class="col-sm-10">
+                            <input asp-for="UserName" class="form-control" autocomplete="off" readonly />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Yetki Kodu</label>
+                        <div class="col-sm-10">
+                            <input asp-for="RandomKeyFormatted" class="form-control" readonly />
+                            <small class="form-text text-muted">Manuel girişlerde büyük/küçük harf ayrımı yoktur.</small>
+                            <input asp-for="RandomKey" class="form-control" readonly type="hidden" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Yetki Kodu</label>
+                        <div class="col-sm-10">
+                            <div id="qrCode"></div>
+                            <small class="form-text text-muted">Authenticator uygulaması ile okutabilirsiniz.</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-10">
+                            <input type="submit" />
+                        </div>
+                    </div>
+
+
+
+                </form>
+
+            </div>
+
+            <blockquote class="blockquote">
+                <p class="mb-0">İki Faktörlü Kimlik Doğruluma</p>
+                <footer class="blockquote-footer">Üretilen kodların uyumlu olması için sistemlerin satlerinin uyumlu olması gerekmektedir.</footer>
+            </blockquote>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section scriptSection {
+
+    <script>
+    new QRCode(document.getElementById("qrCode"),
+        {
+            text: "@Html.Raw(Model.QRCodeData)",
+            width: 200,
+            height: 200
+        });
+    </script>
+
+}

@@ -1,0 +1,37 @@
+﻿@model string
+
+<div class="container-lg navbar-padding">
+
+    <div class="row">
+
+        <div class="col">
+
+            <div class="jumbotron">
+
+                <h1 class="display-4">İki Aşamalı Kimlik Doğrulama</h1>
+
+                <hr />
+
+                <form name="validateForm" id="validateForm" asp-controller="TFA" asp-action="Validate" method="post">
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Doğrulama Sonucu</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" autocomplete="off" value="@Model" />
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+
+            <blockquote class="blockquote">
+                <p class="mb-0">İki Faktörlü Kimlik Doğruluma</p>
+                <footer class="blockquote-footer">Üretilen kodların uyumlu olması için sistemlerin satlerinin uyumlu olması gerekmektedir.</footer>
+            </blockquote>
+
+        </div>
+
+    </div>
+
+</div>
